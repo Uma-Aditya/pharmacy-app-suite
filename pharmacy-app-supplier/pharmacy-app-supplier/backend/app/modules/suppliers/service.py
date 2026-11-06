@@ -89,13 +89,11 @@ async def update_supplier(
 async def delete_supplier(
     db: Any, store_id: str, supplier_id: str, actor_id: str | None = None
 ) -> None:
-    """Archive a supplier. Historic purchase orders keep their reference."""
+    """Delete a supplier completely. Historic purchase orders keep their reference."""
     await find_supplier(db, store_id, supplier_id)
     pool = await get_pg_connection(db)
     await pool.execute(
-        """UPDATE suppliers SET status = 'INACTIVE', updated_at = $1
-           WHERE id = $2 AND store_id = $3""",
-        datetime.now(timezone.utc),
+        """DELETE FROM suppliers WHERE id = $1 AND store_id = $2""",
         supplier_id,
         store_id,
     )
@@ -105,7 +103,7 @@ async def delete_supplier(
             actor_user_id=actor_id,
             actor_role="SHOP_OWNER",
             store_id=store_id,
-            action="owner.supplier.archive",
+            action="owner.supplier.delete",
             target_type="supplier",
             target_id=supplier_id,
             result="SUCCESS",

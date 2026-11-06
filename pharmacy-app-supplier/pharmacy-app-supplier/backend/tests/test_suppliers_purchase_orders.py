@@ -60,6 +60,15 @@ def test_supplier_crud():
     )
     assert res_dup.status_code == 409
 
+    # 6. Delete Supplier
+    res_del = client.delete(f"/api/v1/stores/{STORE_ID}/suppliers/{sup_id}")
+    assert res_del.status_code == 200
+    assert res_del.json()["success"] is True
+
+    # 7. Verify 404 after deletion
+    res_404 = client.get(f"/api/v1/stores/{STORE_ID}/suppliers/{sup_id}")
+    assert res_404.status_code == 404
+
 
 def test_purchase_order_lifecycle():
     # 1. Setup Active Supplier

@@ -992,6 +992,11 @@ class MockDataService extends ChangeNotifier {
     }
   }
 
+  void deleteSupplier(String supplierId) {
+    _suppliers.removeWhere((s) => s.id == supplierId);
+    notifyListeners();
+  }
+
   // --- PURCHASE ORDER CREATION & ACTIONS ---
   void createPurchaseOrder(PurchaseOrder po) => addPurchaseOrder(po);
 

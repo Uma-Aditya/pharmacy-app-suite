@@ -116,8 +116,8 @@ class AppStrings {
   String get outstandingUnits =>
       isTe ? 'మిగిలిన యూనిట్లు' : 'Outstanding Units';
   String get callSupplier => isTe ? 'కాల్ చేయండి' : 'Call';
-  String get deactivate => isTe ? 'నిష్క్రియం చేయండి' : 'Deactivate';
-  String get reactivate => isTe ? 'పునరుద్ధరించండి' : 'Reactivate';
+  String get deleteSupplier => isTe ? 'సరఫరాదారుని తొలగించండి' : 'Delete Supplier';
+  String get delete => isTe ? 'తొలగించండి' : 'Delete';
   String get noSuppliersYet =>
       isTe ? 'సరఫరాదారులు ఎవరూ లేరు' : 'No suppliers yet';
 

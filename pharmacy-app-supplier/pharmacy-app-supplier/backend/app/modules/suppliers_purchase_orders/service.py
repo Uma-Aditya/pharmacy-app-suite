@@ -342,6 +342,18 @@ class SupplierPOService:
             fallback_store.suppliers[supplier_id].update(updates)
             return SupplierOut(**fallback_store.suppliers[supplier_id])
 
+    async def delete_supplier(self, store_id: str, supplier_id: str) -> dict[str, Any]:
+        await self.get_supplier(store_id, supplier_id)
+        if self.db is not None:
+            await self.db.suppliers.delete_one({"store_id": store_id, "id": supplier_id})
+        if supplier_id in fallback_store.suppliers:
+            del fallback_store.suppliers[supplier_id]
+        return {
+            "success": True,
+            "message": f"Supplier {supplier_id} deleted successfully",
+            "id": supplier_id,
+        }
+
     # -------------------------------------------------------------------------
     # PURCHASE ORDERS
     # -------------------------------------------------------------------------

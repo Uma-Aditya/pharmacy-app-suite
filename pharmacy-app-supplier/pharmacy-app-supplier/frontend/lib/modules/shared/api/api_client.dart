@@ -162,6 +162,24 @@ class ApiClient {
     throw ApiException(_errorMessage(decoded, response.body), statusCode: response.statusCode);
   }
 
+  Future<bool> deleteSupplierStrict({
+    String storeId = 'main_store',
+    required String supplierId,
+  }) async {
+    try {
+      final response = await _client
+          .delete(Uri.parse('$_baseUrl/stores/$storeId/suppliers/$supplierId'))
+          .timeout(const Duration(seconds: 15));
+      if (response.statusCode >= 200 && response.statusCode < 300) return true;
+      final fallback = await _client
+          .delete(Uri.parse('$_baseUrl/suppliers/$supplierId'))
+          .timeout(const Duration(seconds: 15));
+      return fallback.statusCode >= 200 && fallback.statusCode < 300;
+    } catch (_) {
+      return false;
+    }
+  }
+
   Future<Map<String, dynamic>?> getSupplier({
     String storeId = 'main_store',
     required String supplierId,

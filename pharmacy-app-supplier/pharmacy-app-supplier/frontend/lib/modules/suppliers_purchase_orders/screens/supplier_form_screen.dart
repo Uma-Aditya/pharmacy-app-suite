@@ -365,28 +365,47 @@ class _SupplierFormScreenState extends State<SupplierFormScreen> {
                 const SizedBox(height: 16),
 
                 if (isEdit) ...[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Active Status',
-                            style: AppTypography.bodyStrong,
-                          ),
-                          Text(
-                            'Deactivated suppliers cannot be chosen for new POs',
-                            style: AppTypography.caption,
-                          ),
-                        ],
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton.icon(
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AppColors.dangerFg,
+                        side: const BorderSide(color: AppColors.dangerFg),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
-                      Switch(
-                        value: _isActive,
-                        activeColor: AppColors.matchaDeep,
-                        onChanged: (val) => setState(() => _isActive = val),
-                      ),
-                    ],
+                      icon: const Icon(Icons.delete_outline_rounded),
+                      label: Text(strings.deleteSupplier),
+                      onPressed: () async {
+                        final confirmed = await ConfirmSheet.show(
+                          context,
+                          title: strings.deleteSupplier,
+                          message:
+                              'Are you sure you want to delete ${widget.supplierToEdit!.name}? This will permanently remove the supplier from your store.',
+                          isDestructive: true,
+                          confirmLabel: strings.delete,
+                          cancelLabel: strings.cancel,
+                        );
+                        if (confirmed == true && context.mounted) {
+                          MockDataService().deleteSupplier(widget.supplierToEdit!.id);
+                          try {
+                            await ApiClient().deleteSupplierStrict(
+                              supplierId: widget.supplierToEdit!.id,
+                            );
+                          } catch (_) {}
+                          if (context.mounted) {
+                            Navigator.of(context).pop();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  '${widget.supplierToEdit!.name} deleted successfully',
+                                ),
+                              ),
+                            );
+                          }
+                        }
+                      },
+                    ),
                   ),
                 ],
                 const SizedBox(height: 32),

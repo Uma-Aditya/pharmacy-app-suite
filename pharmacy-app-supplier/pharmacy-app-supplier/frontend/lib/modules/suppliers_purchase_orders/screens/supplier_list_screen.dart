@@ -172,50 +172,58 @@ class _SupplierListScreenState extends State<SupplierListScreen> {
                                               ),
                                             ),
                                           );
-                                        } else if (action == 'toggle') {
-                                          final willDeactivate =
-                                              supplier.isActive;
-                                          final confirmed = await ConfirmSheet.show(
-                                            context,
-                                            title: willDeactivate
-                                                ? strings.deactivate
-                                                : strings.reactivate,
-                                            message: willDeactivate
-                                                ? 'Are you sure you want to deactivate ${supplier.name}? This supplier has ${supplier.openPurchaseOrderCount} open purchase orders.'
-                                                : 'Reactivate ${supplier.name} for creating new purchase orders?',
-                                            isDestructive: willDeactivate,
-                                            confirmLabel: willDeactivate
-                                                ? strings.deactivate
-                                                : strings.reactivate,
-                                            cancelLabel: strings.cancel,
-                                          );
-                                          if (confirmed == true) {
-                                            service.toggleSupplierStatus(
-                                              supplier.id,
-                                            );
-                                            try {
-                                              await ApiClient().updateSupplierStrict(
-                                                supplierId: supplier.id,
-                                                payload: {'is_active': !willDeactivate},
-                                              );
-                                            } catch (_) {}
-                                          }
-                                        }
-                                      },
-                                      itemBuilder: (_) => [
-                                      PopupMenuItem(
-                                        value: 'edit',
-                                        child: Text(strings.editSupplier),
-                                      ),
-                                      PopupMenuItem(
-                                        value: 'toggle',
-                                        child: Text(
-                                          supplier.isActive
-                                              ? strings.deactivate
-                                              : strings.reactivate,
-                                        ),
-                                      ),
-                                    ],
+                                        } else if (action == 'delete') {
+                                           final confirmed = await ConfirmSheet.show(
+                                             context,
+                                             title: strings.deleteSupplier,
+                                             message:
+                                                 'Are you sure you want to delete \? This will permanently remove the supplier from your store.',
+                                             isDestructive: true,
+                                             confirmLabel: strings.delete,
+                                             cancelLabel: strings.cancel,
+                                           );
+                                           if (confirmed == true) {
+                                             service.deleteSupplier(
+                                               supplier.id,
+                                             );
+                                             try {
+                                               await ApiClient().deleteSupplierStrict(
+                                                 supplierId: supplier.id,
+                                               );
+                                             } catch (_) {}
+                                             if (context.mounted) {
+                                               ScaffoldMessenger.of(context).showSnackBar(
+                                                 SnackBar(content: Text('\ deleted successfully')),
+                                               );
+                                             }
+                                           }
+                                         }
+                                       },
+                                       itemBuilder: (_) => [
+                                       PopupMenuItem(
+                                         value: 'edit',
+                                         child: Text(strings.editSupplier),
+                                       ),
+                                       PopupMenuItem(
+                                         value: 'delete',
+                                         child: Row(
+                                           children: [
+                                             const Icon(
+                                               Icons.delete_outline_rounded,
+                                               size: 18,
+                                               color: AppColors.dangerFg,
+                                             ),
+                                             const SizedBox(width: 8),
+                                             Text(
+                                               strings.deleteSupplier,
+                                               style: const TextStyle(
+                                                 color: AppColors.dangerFg,
+                                               ),
+                                             ),
+                                           ],
+                                         ),
+                                       ),
+                                     ],
                                   ),
                                 ],
                               ),

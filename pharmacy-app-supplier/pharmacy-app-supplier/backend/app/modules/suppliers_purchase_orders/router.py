@@ -2,7 +2,7 @@
 Enforces store-scoping, idempotency on receipt confirmation, and strict status workflows.
 """
 
-from typing import Optional
+from typing import Any, Optional
 from fastapi import APIRouter, Header, HTTPException, Query, Request, Response, status
 
 from app.modules.suppliers_purchase_orders.schemas import (
@@ -71,6 +71,17 @@ async def update_supplier(
     """Update supplier contact, payment terms, or active status."""
     service = get_service(request)
     return await service.update_supplier(store_id, supplier_id, payload)
+
+
+@router.delete("/suppliers/{supplier_id}", status_code=status.HTTP_200_OK)
+async def delete_supplier(
+    store_id: str,
+    supplier_id: str,
+    request: Request,
+) -> dict[str, Any]:
+    """Delete a supplier completely from the store."""
+    service = get_service(request)
+    return await service.delete_supplier(store_id, supplier_id)
 
 
 # -----------------------------------------------------------------------------

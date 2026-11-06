@@ -1,3 +1,5 @@
+import 'package:pharmacy_app/modules/shared/ui/confirm_sheet.dart';
+import 'package:pharmacy_app/modules/shared/api/api_client.dart';
 import 'package:flutter/material.dart';
 
 import 'package:pharmacy_app/modules/shared/theme/colors.dart';
@@ -113,6 +115,35 @@ class _SupplierDetailScreenState extends State<SupplierDetailScreen> {
                           SupplierFormScreen(supplierToEdit: supplier),
                     ),
                   );
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.delete_outline_rounded, color: AppColors.dangerFg),
+                tooltip: 'Delete Supplier',
+                onPressed: () async {
+                  final confirmed = await ConfirmSheet.show(
+                    context,
+                    title: strings.deleteSupplier,
+                    message:
+                        'Are you sure you want to delete \? This will permanently remove the supplier from your store.',
+                    isDestructive: true,
+                    confirmLabel: strings.delete,
+                    cancelLabel: strings.cancel,
+                  );
+                  if (confirmed == true && context.mounted) {
+                    MockDataService().deleteSupplier(supplier.id);
+                    try {
+                      await ApiClient().deleteSupplierStrict(
+                        supplierId: supplier.id,
+                      );
+                    } catch (_) {}
+                    if (context.mounted) {
+                      Navigator.of(context).pop();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('\ deleted successfully')),
+                      );
+                    }
+                  }
                 },
               ),
             ],

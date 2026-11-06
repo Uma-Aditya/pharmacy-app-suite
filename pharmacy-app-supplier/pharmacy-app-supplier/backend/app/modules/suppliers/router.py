@@ -109,7 +109,7 @@ async def delete_supplier(
     db: Any = Depends(get_db),
 ) -> dict[str, str]:
     await service.delete_supplier(db, _store(user), supplier_id, str(user.get("sub") or ""))
-    return {"message": "Supplier archived"}
+    return {"message": "Supplier deleted"}
 
 
 @router.get("/purchase-orders")
