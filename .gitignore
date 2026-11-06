@@ -1,0 +1,40 @@
+# Excluded legacy / merged staging directory
+Merged/
+*.zip
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/.venv/
+**/venv/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/coverage.xml
+**/htmlcov/
+
+# Flutter / Dart build artifacts
+**/.dart_tool/
+**/.packages
+**/.pub-cache/
+**/.pub/
+**/build/
+**/build_preview/
+**/build_release/
+**/*.ephemeral/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# Environment and secrets
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+
+# Editors & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

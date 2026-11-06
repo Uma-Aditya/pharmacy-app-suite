@@ -1,0 +1,182 @@
+{
+  "med-000101": {
+    "id": "med-000101",
+    "catalogue_scope": "shared",
+    "brand_name": "Dolo",
+    "generic_name": "Paracetamol",
+    "strength_value": 650.0,
+    "strength_unit": "mg",
+    "form": "tablet",
+    "category": "medicine",
+    "base_unit": "tablet",
+    "status": "active",
+    "manufacturer": "Micro Labs",
+    "unit_conversions": [
+      {
+        "pack_unit": "strip",
+        "factor": 15
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  },
+  "med-000102": {
+    "id": "med-000102",
+    "catalogue_scope": "shared",
+    "brand_name": "Dolo",
+    "generic_name": "Paracetamol",
+    "strength_value": 500.0,
+    "strength_unit": "mg",
+    "form": "tablet",
+    "category": "medicine",
+    "base_unit": "tablet",
+    "status": "active",
+    "manufacturer": "Micro Labs",
+    "unit_conversions": [
+      {
+        "pack_unit": "strip",
+        "factor": 15
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  },
+  "med-000103": {
+    "id": "med-000103",
+    "catalogue_scope": "shared",
+    "brand_name": "Pan",
+    "generic_name": "Pantoprazole",
+    "strength_value": 40.0,
+    "strength_unit": "mg",
+    "form": "tablet",
+    "category": "medicine",
+    "base_unit": "tablet",
+    "status": "active",
+    "manufacturer": "Alkem",
+    "unit_conversions": [
+      {
+        "pack_unit": "strip",
+        "factor": 10
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  },
+  "med-000104": {
+    "id": "med-000104",
+    "catalogue_scope": "shared",
+    "brand_name": "Cotton roll",
+    "generic_name": null,
+    "strength_value": null,
+    "strength_unit": null,
+    "form": "other",
+    "category": "clinic",
+    "base_unit": "piece",
+    "status": "active",
+    "manufacturer": "Sample Surgicals",
+    "unit_conversions": [
+      {
+        "pack_unit": "pack",
+        "factor": 1
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  },
+  "med-000105": {
+    "id": "med-000105",
+    "catalogue_scope": "shared",
+    "brand_name": "Azithral",
+    "generic_name": "Azithromycin",
+    "strength_value": 500.0,
+    "strength_unit": "mg",
+    "form": "tablet",
+    "category": "medicine",
+    "base_unit": "tablet",
+    "status": "active",
+    "manufacturer": "Alembic",
+    "unit_conversions": [
+      {
+        "pack_unit": "strip",
+        "factor": 5
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  },
+  "med-000106": {
+    "id": "med-000106",
+    "catalogue_scope": "shared",
+    "brand_name": "Betadine",
+    "generic_name": "Povidone Iodine",
+    "strength_value": 10.0,
+    "strength_unit": "%",
+    "form": "tube",
+    "category": "derma",
+    "base_unit": "tube",
+    "status": "inactive",
+    "manufacturer": "Win-Medicare",
+    "unit_conversions": [
+      {
+        "pack_unit": "box",
+        "factor": 1
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  },
+  "med-000456": {
+    "id": "med-000456",
+    "catalogue_scope": "shared",
+    "brand_name": "Crocin 500 Advance",
+    "generic_name": "Paracetamol",
+    "strength_value": 500.0,
+    "strength_unit": "mg",
+    "form": "tablet",
+    "category": "medicine",
+    "base_unit": "tablet",
+    "status": "active",
+    "manufacturer": "GlaxoSmithKline",
+    "unit_conversions": [
+      {
+        "pack_unit": "strip",
+        "factor": 15
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  },
+  "med-000112": {
+    "id": "med-000112",
+    "catalogue_scope": "shared",
+    "brand_name": "Amoxil 500",
+    "generic_name": "Amoxicillin",
+    "strength_value": 500.0,
+    "strength_unit": "mg",
+    "form": "tablet",
+    "category": "medicine",
+    "base_unit": "tablet",
+    "status": "active",
+    "manufacturer": "GSK",
+    "unit_conversions": [
+      {
+        "pack_unit": "strip",
+        "factor": 10
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  },
+  "med-000113": {
+    "id": "med-000113",
+    "catalogue_scope": "shared",
+    "brand_name": "Cetzine 10",
+    "generic_name": "Cetirizine",
+    "strength_value": 10.0,
+    "strength_unit": "mg",
+    "form": "tablet",
+    "category": "medicine",
+    "base_unit": "tablet",
+    "status": "active",
+    "manufacturer": "GSK",
+    "unit_conversions": [
+      {
+        "pack_unit": "strip",
+        "factor": 10
+      }
+    ],
+    "created_at": "2026-11-05T21:42:54.741444+00:00"
+  }
+}
