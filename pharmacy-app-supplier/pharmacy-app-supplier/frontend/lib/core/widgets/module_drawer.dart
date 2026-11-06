@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import 'module_placeholder.dart';
 import '../../modules/authentication_store_roles/module.dart';
 import '../../modules/catalogue_search_units/module.dart';
 import '../../modules/suppliers_purchase_orders/module.dart';
@@ -15,7 +16,7 @@ import '../../modules/offline_sync_reliability/module.dart';
 class ModuleDrawer extends StatelessWidget {
   final int activeModuleNumber;
 
-  const ModuleDrawer({super.key, this.activeModuleNumber = 5});
+  const ModuleDrawer({super.key, this.activeModuleNumber = 3});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class ModuleDrawer extends StatelessWidget {
               color: AppTheme.primaryTeal,
               child: const Row(
                 children: [
-                  Icon(Icons.local_pharmacy, color: Colors.white, size: 32),
+                  Icon(Icons.local_shipping_rounded, color: Colors.white, size: 32),
                   SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -44,7 +45,7 @@ class ModuleDrawer extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '12-Member Modular Architecture',
+                          'Member 3 • Suppliers & Purchase Orders',
                           style: TextStyle(fontSize: 11, color: Colors.white70),
                         ),
                       ],
@@ -71,13 +72,14 @@ class ModuleDrawer extends StatelessWidget {
                   ),
                   _buildModuleItem(
                     context: context,
-                    moduleNumber: 5,
-                    title: 'Inventory, Batches & Stock Ledger',
-                    member: 'Member 5 (Us)',
-                    icon: Icons.inventory_2_rounded,
-                    isActive: activeModuleNumber == 5,
+                    moduleNumber: 3,
+                    title: 'Suppliers & Purchase Orders',
+                    member: 'Member 3 (Active)',
+                    icon: Icons.local_shipping_rounded,
+                    isActive: activeModuleNumber == 3,
                     onTap: () {
                       Navigator.of(context).pop();
+                      Navigator.of(context).pushNamed('/suppliers-po');
                     },
                   ),
                   const Divider(height: 24),
@@ -113,21 +115,30 @@ class ModuleDrawer extends StatelessWidget {
                   ),
                   _buildModuleItem(
                     context: context,
-                    moduleNumber: 3,
-                    title: 'Suppliers & Purchase Orders',
-                    member: 'Member 3',
-                    icon: Icons.local_shipping_outlined,
-                    isActive: activeModuleNumber == 3,
-                    onTap: () => _navigateTo(context, const SuppliersPurchaseOrdersScreen()),
-                  ),
-                  _buildModuleItem(
-                    context: context,
                     moduleNumber: 4,
                     title: 'Purchase Invoice Scanning (OCR)',
                     member: 'Member 4',
                     icon: Icons.document_scanner_outlined,
                     isActive: activeModuleNumber == 4,
                     onTap: () => _navigateTo(context, const PurchaseInvoiceScanningScreen()),
+                  ),
+                  _buildModuleItem(
+                    context: context,
+                    moduleNumber: 5,
+                    title: 'Inventory, Batches & Stock Ledger',
+                    member: 'Member 5',
+                    icon: Icons.inventory_2_rounded,
+                    isActive: activeModuleNumber == 5,
+                    onTap: () => _navigateTo(
+                      context,
+                      const ModulePlaceholderScreen(
+                        moduleNumber: 5,
+                        title: 'Inventory, Batches & Stock Ledger',
+                        scope: 'Stock level tracking, batch inventory, and ledger history.',
+                        member: 'Member 5',
+                        integrationWithInventory: 'Central ledger recording stock movements.',
+                      ),
+                    ),
                   ),
                   _buildModuleItem(
                     context: context,

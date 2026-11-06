@@ -13,7 +13,7 @@ import 'package:pharmacy_app/modules/shared/ui/line_item_tile.dart';
 import 'package:pharmacy_app/modules/shared/ui/quantity_stepper.dart';
 import 'package:pharmacy_app/modules/shared/ui/confirm_sheet.dart';
 import '../widgets/supplier_picker_sheet.dart';
-import 'package:pharmacy_app/modules/catalogue_search_units/widgets/medicine_picker_sheet.dart';
+import '../widgets/medicine_picker_sheet.dart';
 import 'po_review_screen.dart';
 
 /// S5: CREATE / EDIT DRAFT PURCHASE ORDER SCREEN - Section 10.4.3

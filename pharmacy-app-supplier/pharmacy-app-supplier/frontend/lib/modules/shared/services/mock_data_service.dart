@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 import '../api/api_client.dart';
 import '../models/supplier.dart';
@@ -7,7 +7,6 @@ import '../models/batch.dart';
 import '../models/purchase_order.dart';
 import '../models/goods_receipt.dart';
 import '../models/customer.dart';
-import 'package:pharmacy_app/modules/outward_sales_report_scanning/models/sales_report.dart';
 
 /// Central state repository and service for offline testing & live API binding.
 /// Contains realistic Indian pharmacy data per PART 4.10.
@@ -755,7 +754,7 @@ class MockDataService extends ChangeNotifier {
   }
 
   // --- OUTWARD SALES DEDUCTIONS (Generic-first FEFO batch deduction upon confirmed post) ---
-  bool recordSalesDeductions(SalesReport report) {
+  bool recordSalesDeductions(dynamic report) {
     // 1. Upfront stock validation across all lines - all or nothing!
     for (final line in report.lines) {
       final looseUnits = line.calculatedLooseUnits;

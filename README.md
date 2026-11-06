@@ -117,3 +117,4 @@ The seed script initializes role-based demo accounts:
 All backends and frontends are validated with automated test suites:
 - **Backend:** `pytest tests/` (100% pass rate across all 174 unit and integration tests)
 - **Frontend:** `flutter test test/three_modules_test.dart test/contrast_test.dart` (14/14 widget & contrast tests passing)
+

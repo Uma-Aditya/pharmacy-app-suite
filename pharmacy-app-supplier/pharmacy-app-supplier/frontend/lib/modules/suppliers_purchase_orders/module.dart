@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy_app/modules/shared/theme/colors.dart';
+import '../../core/widgets/module_drawer.dart';
 import 'screens/supplier_list_screen.dart';
 import 'screens/po_list_screen.dart';
 
@@ -29,6 +30,7 @@ class SuppliersPurchaseOrdersScreen extends StatelessWidget {
             ],
           ),
         ),
+        drawer: const ModuleDrawer(activeModuleNumber: 3),
         body: const TabBarView(
           children: [
             SupplierListScreen(),

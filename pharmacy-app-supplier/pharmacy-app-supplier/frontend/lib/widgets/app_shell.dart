@@ -251,10 +251,10 @@ class _AppShellState extends State<AppShell> {
               ),
               if (role == 'SHOP_OWNER')
                 IconButton(
-                  tooltip: 'Sales report',
-                  icon: const Icon(Icons.insights_rounded, color: Colors.white),
+                  tooltip: 'Suppliers & Purchase Orders',
+                  icon: const Icon(Icons.local_shipping_outlined, color: Colors.white),
                   onPressed: () =>
-                      Navigator.of(context).pushNamed('/sales-report'),
+                      Navigator.of(context).pushNamed('/suppliers-po'),
                 ),
               IconButton(
                 tooltip: tr('notifications'),

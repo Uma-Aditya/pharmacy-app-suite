@@ -194,10 +194,33 @@ from fastapi import HTTPException
 ASCENDING = 1
 DESCENDING = -1
 
-from app.modules.catalogue_search_units.service import (
-    conversion_factor,
-    fallback_catalogue_store,
-)
+class _FallbackCatalogueStore:
+    def __init__(self):
+        self.medicines = {
+            "MED-001": {
+                "id": "MED-001",
+                "brand_name": "Paracetamol 500mg",
+                "generic_name": "Paracetamol",
+                "base_unit": "tablet",
+                "unit_conversions": [{"pack_unit": "strip", "factor": 10}, {"pack_unit": "box", "factor": 100}],
+            },
+            "MED-002": {
+                "id": "MED-002",
+                "brand_name": "Amoxicillin 500mg",
+                "generic_name": "Amoxicillin",
+                "base_unit": "capsule",
+                "unit_conversions": [{"pack_unit": "strip", "factor": 10}],
+            },
+            "MED-003": {
+                "id": "MED-003",
+                "brand_name": "Cetirizine 10mg",
+                "generic_name": "Cetirizine",
+                "base_unit": "tablet",
+                "unit_conversions": [{"pack_unit": "strip", "factor": 10}],
+            },
+        }
+
+fallback_catalogue_store = _FallbackCatalogueStore()
 
 
 def _now_iso() -> str:

@@ -302,6 +302,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Widget _buildOwnerDashboard() {
     final actions = [
+      ('Suppliers & POs', Icons.local_shipping_rounded, '/suppliers-po'),
       (tr('navMyShop'), Icons.storefront_rounded, '/shop'),
       (tr('prescriptions'), Icons.medical_services_rounded, '/prescriptions'),
       (tr('inventory'), Icons.inventory_2_rounded, '/inventory'),
