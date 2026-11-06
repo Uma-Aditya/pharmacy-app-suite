@@ -104,7 +104,7 @@ class AppStrings {
 
   // MODULE 4: SUPPLIERS
   String get suppliers => isTe ? 'సరఫరాదారులు' : 'Suppliers';
-  String get addSupplier => isTe ? '+ సరఫరాదారుని జోడించండి' : '+ Add Supplier';
+  String get addSupplier => isTe ? 'సరఫరాదారుని జోడించండి' : 'Add Supplier';
   String get editSupplier => isTe ? 'సరఫరాదారు సవరణ' : 'Edit Supplier';
   String get supplierDetails => isTe ? 'సరఫరాదారు వివరాలు' : 'Supplier Details';
   String get contactPerson => isTe ? 'సంప్రదింపు వ్యక్తి' : 'Contact Person';
@@ -124,13 +124,13 @@ class AppStrings {
   // MODULE 4: PURCHASE ORDERS
   String get purchaseOrders => isTe ? 'కొనుగోలు ఆర్డర్లు' : 'Purchase Orders';
   String get newPurchaseOrder =>
-      isTe ? '+ కొత్త కొనుగోలు ఆర్డర్' : '+ New Purchase Order';
+      isTe ? 'కొత్త కొనుగోలు ఆర్డర్' : 'New Purchase Order';
   String get orderNumber => isTe ? 'ఆర్డర్ నంబర్' : 'Order Number';
   String get awaitingDelivery =>
       isTe ? 'డెలివరీ కోసం వేచి ఉంది' : 'Awaiting delivery';
   String get selectSupplier =>
       isTe ? 'సరఫరాదారుని ఎంచుకోండి' : 'Select Supplier';
-  String get addLineItem => isTe ? '+ మందు జోడించండి' : '+ Add Medicine';
+  String get addLineItem => isTe ? 'మందు జోడించండి' : 'Add Medicine';
   String get saveAsDraft => isTe ? 'డ్రాఫ్ట్‌గా సేవ్ చేయండి' : 'Save as Draft';
   String get sendOrder => isTe ? 'ఆర్డర్ పంపండి' : 'Send Order';
   String get cancelOrder => isTe ? 'ఆర్డర్ రద్దు చేయండి' : 'Cancel Order';
